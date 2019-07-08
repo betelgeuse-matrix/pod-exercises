@@ -6,5 +6,27 @@
 </head>
 <body>
 
+
+
+<h1>DOM Events Exercise</h1>
+
+<h3>Hello</h3>
+
+<input id="textbox" type="text">
+
+<script>
+    "use strict";
+
+    var text = document.getElementById("textbox");
+
+    text.addEventListener("keyup", function(event){
+        var x = event.code;
+        if (x == "KeyG") {
+            alert ("You pressed the 'g' key!");
+        }
+    });
+
+
+</script>
 </body>
 </html>
