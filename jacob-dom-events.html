@@ -13,18 +13,42 @@
 <h3>Hello</h3>
 
 <input id="textbox" type="text">
+<div id="counter"></div>
 
 <script>
-    "use strict";
+    document.addEventListener('DOMContentLoaded', () => {
+        "use strict";
 
-    var text = document.getElementById("textbox");
+    var text = document.getElementById('textbox');
+    var bdy = document.getElementsByTagName('body')[0];
+    var ctr = document.getElementById('counter');
+    var entr = 1;
+
 
     text.addEventListener("keyup", function(event){
         var x = event.code;
+        event.preventDefault();
         if (x == "KeyG") {
-            alert ("You pressed the 'g' key!");
+            bdy.style['background-color'] = 'purple';
+        } if (x == "Enter") {
+            ctr.innerHTML = "<h3>" + "Enter Key Count: " + entr + "</h3>";
+            entr++;
         }
     });
+
+
+    let buffer = [];
+    document.addEventListener('keydown', event => {
+        const charList = '123';
+    const key = event.key.toLowerCase();
+    if (charList.indexOf(key) === -1);
+    buffer.push(key);
+    buffer = [];
+    console.log(buffer);
+    alert('You get a 50% discount!');
+    });
+    });
+
 
 
 </script>
