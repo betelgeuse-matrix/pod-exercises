@@ -15,8 +15,9 @@
 <input id="textbox" type="text">
 <div id="counter"></div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    // document.addEventListener('DOMContentLoaded', () => {
         "use strict";
 
     var text = document.getElementById('textbox');
@@ -36,18 +37,40 @@
         }
     });
 
+    var kode = ["1", "2", "3"];
+    var kount = 0;
+    var arr = [];
 
-    let buffer = [];
-    document.addEventListener('keydown', event => {
-        const charList = '123';
-    const key = event.key.toLowerCase();
-    if (charList.indexOf(key) === -1);
-    buffer.push(key);
-    buffer = [];
-    console.log(buffer);
-    alert('You get a 50% discount!');
+    $(document).keyup(function(event) {
+        if (event.key === kode[kount]) {
+            kount++;
+            arr.push(event.key);
+            console.log(arr);
+        } else {
+            kount = 0;
+            arr = [];
+        }
+
+        if (arr.length === 3) {
+            alert('You get a 50% discount!');
+        }
     });
-    });
+
+    // });
+
+
+
+    // let buffer = [];
+    // document.addEventListener('keydown', event => {
+    //     const charList = '123';
+    //     const key = event.key.toLowerCase();
+    //     if (charList.indexOf(key) === -1) return;
+    //     buffer.push(key);
+    //     buffer = [];
+    //     console.log(buffer);
+    //     alert('You get a 50% discount!');
+    //     });
+    //     });
 
 
 

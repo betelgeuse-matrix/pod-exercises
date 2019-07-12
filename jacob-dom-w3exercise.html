@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>JS DOM paragraph style</title>
+</head>
+<body id="bdy">
+<!--1. Here is a sample html file with a submit button. Now modify the style of the paragraph text through javascript code.-->
+<!--Clicking on the button the font, font size, and color of the paragraph text will be changed.-->
+
+
+<p id ='text'>JavaScript Exercises - w3resource</p>
+<div>
+    <button id="jsstyle"
+            >Style</button>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    "use strict";
+
+    var clickity = document.getElementById('jsstyle');
+    var bdy = document.getElementById("bdy");
+
+    clickity.addEventListener('click', js_style);
+
+    function js_style(){
+        clickity.style.color = '#F10';
+        bdy.style['background-color'] = '#02F';
+        clickity.style.fontFamily = "Helvetica, Veranda, Sans-Serif";
+    }
+
+</script>
+</body>
+</html>
