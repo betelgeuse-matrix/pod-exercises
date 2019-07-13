@@ -186,7 +186,7 @@ function calculateDamage(yourType, opponentType, attack, defense){
     return Math.ceil(50 * (attack/defense) * effectiveness);
 }
 
-//I knew there had to be an easier way to do this and I understand it now that I've seen other solutions, posting one below this comment. I should have thought with objects more than I actually did, it would have made this problem much more simple, but a loop was the only way I could think of for some reason.
+//I knew there had to be an easier way to do this and I understand it now that I've seen other solutions, posting one below this comment. I should have thought with objects more than I actually did, it would have made this problem much more simple, but a loop was the only way I could think of for some reason.x
 
 var effects = {
     fire : {
@@ -218,3 +218,29 @@ var effects = {
 function calculateDamage(yourType, opponentType, attack, defense){
     return Math.ceil(50 * (attack/defense) * effects[yourType][opponentType]);
 }
+
+// Task from Codewars
+
+// Given a string str, reverse it omitting all non-alphabetic characters.
+
+//     Example
+// For str = "krishan", the output should be "nahsirk".
+
+//     For str = "ultr53o?n", the output should be "nortlu".
+
+//     Input/Output
+//     [input] string str
+
+// A string consists of lowercase latin letters, digits and symbols.
+
+//     [output] a string
+
+function reverseLetter(str) {
+    var replace = str.replace(/[^a-zA-Z ]/g, "");
+    var split = replace.split("");
+    var filter = split.filter(isNaN);
+    var reverse = filter.reverse();
+    var join = reverse.join("");
+}
+
+reverseLetter("kri?shan");
