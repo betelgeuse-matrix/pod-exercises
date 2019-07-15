@@ -219,7 +219,7 @@ function calculateDamage(yourType, opponentType, attack, defense){
     return Math.ceil(50 * (attack/defense) * effects[yourType][opponentType]);
 }
 
-// Task from Codewars
+// Task from Codewars, Simple Fun #176: Reverse Letter
 
 // Given a string str, reverse it omitting all non-alphabetic characters.
 
@@ -245,7 +245,8 @@ function reverseLetter(str) {
 }
 reverseLetter("kri?234shan");
 
-// Task from Codewars
+// Task from Codewars, Simple Fun #37: House Numbers Sum
+
 // A boy is walking a long way from school to his home. To make the walk more fun he decides to add up all the numbers of the houses that he passes by during his walk. Unfortunately, not all of the houses have numbers written on them, and on top of that the boy is regularly taking turns to change streets, so the numbers don't appear to him in any particular order.
 
 // At some point during the walk the boy encounters a house with number 0 written on it, which surprises him so much that he stops adding numbers to his total right after seeing that house.
@@ -278,7 +279,6 @@ function houseNumbersSum(inputArray) {
         return total + num;
     }
     var num = array.reduce(add);
-    console.log(num)
 }
 houseNumbersSum([5, 1, 2, 3, 0, 1, 5, 0, 2]);
 
