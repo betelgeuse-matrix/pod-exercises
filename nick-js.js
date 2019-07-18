@@ -284,6 +284,12 @@ houseNumbersSum([5, 1, 2, 3, 0, 1, 5, 0, 2]);
 
 //Made a calculator!
 
+var isFloat = function(num) {
+    if (+num === +num && +num !== (+num|0)){
+        return true
+    }
+};
+
 var symbolFunc = $('.symbol').click(function(){
     var num = $(this).html();
     $('#middle').val(function(){
@@ -315,30 +321,45 @@ var equalsFunc = $('.equals').click(function(){
         var middle = $('#middle').val();
         var right = parseInt($('#rightSide').val());
         var num = $('#leftSide').html();
-        $('.text-area').val('');
         switch (middle) {
             case "+":
                 num = left + right;
                 $('#leftSide').val(function(){
-                    return num.toFixed(2);
+                    if (isFloat(num) === true) {
+                        return num.toFixed(2);
+                    } else {
+                        return num
+                    }
                 });
                 break;
             case "-":
                 num = left - right;
                 $('#leftSide').val(function(){
-                    return num.toFixed(2);
+                    if (isFloat(num) === true) {
+                        return num.toFixed(2);
+                    } else {
+                        return num
+                    }
                 });
                 break;
             case '*':
                 num = left * right;
                 $('#leftSide').val(function(){
-                    return num.toFixed(2);
+                    if (isFloat(num) === true) {
+                        return num.toFixed(2);
+                    } else {
+                        return num
+                    }
                 });
                 break;
             case '/':
                 num = left / right;
                 $('#leftSide').val(function(){
-                    return num.toFixed(2);
+                    if (isFloat(num) === true) {
+                        return num.toFixed(2);
+                    } else {
+                        return num
+                    }
                 });
                 break;
         }
