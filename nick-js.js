@@ -282,3 +282,65 @@ function houseNumbersSum(inputArray) {
 }
 houseNumbersSum([5, 1, 2, 3, 0, 1, 5, 0, 2]);
 
+//Made a calculator!
+
+var symbolFunc = $('.symbol').click(function(){
+    var num = $(this).html();
+    $('#middle').val(function(){
+        return num;
+    })
+});
+
+var numberFunc = $('.numbers').click(function(){
+    if ($('#middle').val() === '+' || $('#middle').val() === '-' || $('#middle').val() === '/' || $('#middle').val() === '*') {
+        var num = $(this).html();
+        $('#rightSide').val(function(i, val){
+            return val + num;
+        })
+    } else {
+        num = $(this).html();
+        $('#leftSide').val(function(i, val){
+            return val + num;
+        })
+    }
+});
+
+var clearFunc = $('.clear').click(function (){
+    $('.text-area').val('');
+});
+
+var equalsFunc = $('.equals').click(function(){
+    if (isNaN(parseInt($('#rightSide').val()))===false) {
+        var left = parseInt($('#leftSide').val());
+        var middle = $('#middle').val();
+        var right = parseInt($('#rightSide').val());
+        var num = $('#leftSide').html();
+        $('.text-area').val('');
+        switch (middle) {
+            case "+":
+                num = left + right;
+                $('#leftSide').val(function(){
+                    return num.toFixed(2);
+                });
+                break;
+            case "-":
+                num = left - right;
+                $('#leftSide').val(function(){
+                    return num.toFixed(2);
+                });
+                break;
+            case '*':
+                num = left * right;
+                $('#leftSide').val(function(){
+                    return num.toFixed(2);
+                });
+                break;
+            case '/':
+                num = left / right;
+                $('#leftSide').val(function(){
+                    return num.toFixed(2);
+                });
+                break;
+        }
+    }
+});
