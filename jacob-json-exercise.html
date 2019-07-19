@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Check if the provided argument is a valid JSON</title>
+</head>
+<body>
+<script>
+    const isValidJSON = obj => {
+        try {
+            JSON.parse(obj);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    };
+    console.log(isValidJSON('{"name":"Adam","age":20}'));
+    console.log(isValidJSON('{"name":"Adam",age:"20"}'));
+    console.log(isValidJSON(null));
+</script>
+</body>
+</html>

@@ -6,5 +6,74 @@
 </head>
 <body>
 
+
+
+<h1>DOM Events Exercise</h1>
+
+<h3>Hello</h3>
+
+<input id="textbox" type="text">
+<div id="counter"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+    // document.addEventListener('DOMContentLoaded', () => {
+        "use strict";
+
+    var text = document.getElementById('textbox');
+    var bdy = document.getElementsByTagName('body')[0];
+    var ctr = document.getElementById('counter');
+    var entr = 1;
+
+
+    text.addEventListener("keyup", function(event){
+        var x = event.code;
+        event.preventDefault();
+        if (x == "KeyG") {
+            bdy.style['background-color'] = 'purple';
+        } if (x == "Enter") {
+            ctr.innerHTML = "<h3>" + "Enter Key Count: " + entr + "</h3>";
+            entr++;
+        }
+    });
+
+    var kode = ["1", "2", "3"];
+    var kount = 0;
+    var arr = [];
+
+    $(document).keyup(function(event) {
+        if (event.key === kode[kount]) {
+            kount++;
+            arr.push(event.key);
+            console.log(arr);
+        } else {
+            kount = 0;
+            arr = [];
+        }
+
+        if (arr.length === 3) {
+            alert('You get a 50% discount!');
+        }
+    });
+
+    // });
+
+
+
+    // let buffer = [];
+    // document.addEventListener('keydown', event => {
+    //     const charList = '123';
+    //     const key = event.key.toLowerCase();
+    //     if (charList.indexOf(key) === -1) return;
+    //     buffer.push(key);
+    //     buffer = [];
+    //     console.log(buffer);
+    //     alert('You get a 50% discount!');
+    //     });
+    //     });
+
+
+
+</script>
 </body>
 </html>
