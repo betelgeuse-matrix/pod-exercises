@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Nick</title>
+    <style>
+        #middle {
+            width: 30px;
+        }
+        #leftSide {
+            width: 75px;
+        }
+        #rightSide {
+            width: 75px;
+        }
+        button {
+            height: auto;
+            width: 45px;
+        }
+    </style>
 </head>
 <body>
+<div>
+    <input id="leftSide" class="text-area" type="text" name="leftSide" disabled><input id="middle" class="text-area" type="text" name="middle" disabled><input id="rightSide" class="text-area" type="text" name="rightSide" disabled>
+    <br>
+    <button class="numbers" type="button" value="1">1</button>
+    <button class="numbers" type="button" value="2">2</button>
+    <button class="numbers" type="button" value="3">3</button>
+    <button class="symbol" type="button" value="+">+</button>
+    <br>
+    <button class="numbers" type="button" value="4">4</button>
+    <button class="numbers" type="button" value="5">5</button>
+    <button class="numbers" type="button" value="6">6</button>
+    <button class="symbol" type="button" value="-">-</button>
+    <br>
+    <button class="numbers" type="button" value="7">7</button>
+    <button class="numbers" type="button" value="8">8</button>
+    <button class="numbers" type="button" value="9">9</button>
+    <button class="symbol" type="button" value="*">*</button>
+    <br>
+    <button class="clear" type="button">C</button>
+    <button class="numbers" type="button" value="0">0</button>
+    <button class="numbers" type="button" value=".">.</button>
+    <button class="equals" type="button">=</button>
+    <button class="symbol" type="button" value="/">/</button>
+</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="nick-js.js"></script>
 </body>
 </html>

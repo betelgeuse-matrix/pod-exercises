@@ -186,7 +186,7 @@ function calculateDamage(yourType, opponentType, attack, defense){
     return Math.ceil(50 * (attack/defense) * effectiveness);
 }
 
-//I knew there had to be an easier way to do this and I understand it now that I've seen other solutions, posting one below this comment. I should have thought with objects more than I actually did, it would have made this problem much more simple, but a loop was the only way I could think of for some reason.
+//I knew there had to be an easier way to do this and I understand it now that I've seen other solutions, posting one below this comment. I should have thought with objects more than I actually did, it would have made this problem much more simple, but a loop was the only way I could think of for some reason.x
 
 var effects = {
     fire : {
@@ -218,3 +218,150 @@ var effects = {
 function calculateDamage(yourType, opponentType, attack, defense){
     return Math.ceil(50 * (attack/defense) * effects[yourType][opponentType]);
 }
+
+// Task from Codewars, Simple Fun #176: Reverse Letter
+
+// Given a string str, reverse it omitting all non-alphabetic characters.
+
+//     Example
+// For str = "krishan", the output should be "nahsirk".
+
+//     For str = "ultr53o?n", the output should be "nortlu".
+
+//     Input/Output
+//     [input] string str
+
+// A string consists of lowercase latin letters, digits and symbols.
+
+//     [output] a string
+
+function reverseLetter(str) {
+    var replace = str.replace(/[^a-zA-Z ]/g, "");
+    var split = replace.split("");
+    var filter = split.filter(isNaN);
+    var reverse = filter.reverse();
+    var join = reverse.join("");
+    return join;
+}
+reverseLetter("kri?234shan");
+
+// Task from Codewars, Simple Fun #37: House Numbers Sum
+
+// A boy is walking a long way from school to his home. To make the walk more fun he decides to add up all the numbers of the houses that he passes by during his walk. Unfortunately, not all of the houses have numbers written on them, and on top of that the boy is regularly taking turns to change streets, so the numbers don't appear to him in any particular order.
+
+// At some point during the walk the boy encounters a house with number 0 written on it, which surprises him so much that he stops adding numbers to his total right after seeing that house.
+
+//     For the given sequence of houses determine the sum that the boy will get. It is guaranteed that there will always be at least one 0 house on the path.
+
+//     Example
+// For inputArray = [5, 1, 2, 3, 0, 1, 5, 0, 2], the output should be 11.
+
+// The answer was obtained as 5 + 1 + 2 + 3 = 11.
+
+// Input/Output
+//     [input] integer array inputArray
+
+// Constraints: 5 ≤ inputArray.length ≤ 50, 0 ≤ inputArray[i] ≤ 10.
+
+//     [output] an integer
+
+function houseNumbersSum(inputArray) {
+    var array = [];
+    for (var i = 0; i < inputArray.length; i++) {
+        if (inputArray[i] === 0) {
+            array.push(inputArray[i]); //this is needed in case an array starts with zero, if it's gone then reduce() won't work on an empty array.
+            break;
+        } else {
+            array.push(inputArray[i]);
+        }
+    }
+    function add(total, num) {
+        return total + num;
+    }
+    var num = array.reduce(add);
+}
+houseNumbersSum([5, 1, 2, 3, 0, 1, 5, 0, 2]);
+
+//Made a calculator!
+
+var isFloat = function(num) {
+    if (+num === +num && +num !== (+num|0)){
+        return true
+    }
+};
+
+var symbolFunc = $('.symbol').click(function(){
+    var num = $(this).html();
+    $('#middle').val(function(){
+        return num;
+    })
+});
+
+var numberFunc = $('.numbers').click(function(){
+    if ($('#middle').val() === '+' || $('#middle').val() === '-' || $('#middle').val() === '/' || $('#middle').val() === '*') {
+        var num = $(this).html();
+        $('#rightSide').val(function(i, val){
+            return val + num;
+        })
+    } else {
+        num = $(this).html();
+        $('#leftSide').val(function(i, val){
+            return val + num;
+        })
+    }
+});
+
+var clearFunc = $('.clear').click(function (){
+    $('.text-area').val('');
+});
+
+var equalsFunc = $('.equals').click(function(){
+    if (isNaN(parseInt($('#rightSide').val()))===false) {
+        var left = parseInt($('#leftSide').val());
+        var middle = $('#middle').val();
+        var right = parseInt($('#rightSide').val());
+        var num = $('#leftSide').html();
+        switch (middle) {
+            case "+":
+                num = left + right;
+                $('#leftSide').val(function(){
+                    if (isFloat(num) === true) {
+                        return num.toFixed(2);
+                    } else {
+                        return num
+                    }
+                });
+                break;
+            case "-":
+                num = left - right;
+                $('#leftSide').val(function(){
+                    if (isFloat(num) === true) {
+                        return num.toFixed(2);
+                    } else {
+                        return num
+                    }
+                });
+                break;
+            case '*':
+                num = left * right;
+                $('#leftSide').val(function(){
+                    if (isFloat(num) === true) {
+                        return num.toFixed(2);
+                    } else {
+                        return num
+                    }
+                });
+                break;
+            case '/':
+                num = left / right;
+                $('#leftSide').val(function(){
+                    if (isFloat(num) === true) {
+                        return num.toFixed(2);
+                    } else {
+                        return num
+                    }
+                });
+                break;
+        }
+    }
+});
